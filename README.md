@@ -8,12 +8,16 @@
 Cloned and modified from https://github.com/teodoryantcheff/SolidCam-Mach3-Post
 
 
--- From original README.md
+-----
+
+From original README.md
+
 Inspired by **bogan**.
 
 Special thanks to **Bruno Silva** - test part modelling and code testing.
 
 CNCZone [discussion link](http://www.cnczone.com/forums/solidcam/255556-cnc.html).
+
 -----
 
 Setup (4x): standard 3 axis mill. B axis rotary, along Y, A in zero position.

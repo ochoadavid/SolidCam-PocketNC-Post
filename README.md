@@ -1,5 +1,7 @@
 # SolidCam-PocketNC-Post
-## A SolidCam postprocessor for PocketNC supporting 4x operations - beta (5x operations - alpha)
+## A SolidCam postprocessor for PocketNC supporting 4x operations - beta 
+
+## (5x operations - alpha)
 
 **Use this post at your own risk! Always check the produced code before running it on a real machine!**
 

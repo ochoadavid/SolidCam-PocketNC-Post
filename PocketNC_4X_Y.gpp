@@ -1,7 +1,7 @@
 ;
-; Mach3 post for SolidCam 
+; 4ax PocketNC post for SolidCam 
 ; -----
-; Setup: standard 3 axis mill. A axis rotary, along Y.
+; Setup: B axis rotary, along Y, A axis in zero pos.
 ; Latest Revision:
 
 
@@ -12,7 +12,7 @@
     line_labels    = TRUE     ; Jump to N...
 
     ; GPPL variables
-    ;pre_processor   = 'Mach3 - 4 axis Y'
+    ;pre_processor   = 'PocketNC - 4 axis Y'
     numeric_def_f   = '5.3'
     integer_def_f   = '5.0(p)'
     gcode_f         = '2.0(p)'
@@ -35,8 +35,8 @@
     global logical use_sc_feeds
     use_sc_feeds = FALSE
 
-    input 'Trace Level'trace_level
-    trace 'all':trace_level
+    ;input 'Trace Level'trace_level
+    ;trace 'all':trace_level
 endp
 
 ;-------------------
@@ -58,7 +58,7 @@ endp
 
 @start_program
     {nb, '( --- Initialisation --- )'}
-    {nb, 'G0 G53 X0 Y0 A0'} ; TODO REMOVE !!! ;eliminate "Z0" tool crash     
+    {nb, 'G0 G53 X0 Y0 B0'} ; TODO REMOVE !!! ;eliminate "Z0" tool crash     
     {nb, 'G0 G40 G49 G80'}
     if inch_system then
         {' G20'}
@@ -68,7 +68,7 @@ endp
 
     ;{nb, '( --- Go To Machine Origin --- )'}
     ;{nb, 'G0 G53 Z0'}
-    ;{nb, 'G0 G53 X0 Y0 A0'}
+    ;{nb, 'G0 G53 X0 Y0 B0'}
 endp
 
 ;-------------------
@@ -76,7 +76,7 @@ endp
 @end_program
     {nb, 'M9 M5'}
     {nb, 'G0 Z'tool_z_level}
-    {nb, 'G0 X0 Y0 A0'}
+    {nb, 'G0 X0 Y0 B0'}
     {nl, 'M30'}
 endp
 
@@ -188,21 +188,21 @@ endp
 
 @move_4x
     gcode = 0
-    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], ' A'cpos }
+    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], ' B'cpos }
 endp
 
 ;-------------------
 
 @line_4x
     gcode = 1
-    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'cpos], [' F'feed] }
+    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' B'cpos], [' F'feed] }
 endp
 
 ;-------------------
 
 @move_5x
     gcode = 0
-    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'apos] }
+    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' B'apos] }
 endp
 
 ;-------------------
@@ -210,9 +210,9 @@ endp
 @line_5x
     gcode = 1
     if use_sc_feeds then 
-        {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'apos], [' F'feed] }
+        {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' B'apos], [' F'feed] }
     else
-        {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'apos], [' F'original_feed] }
+        {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' B'apos], [' F'original_feed] }
     endif
 endp
 
@@ -269,9 +269,9 @@ endp
 
 @home_number
     gcode = 53 + home_number
-    {nb, 'G'gcode}
+    ;{nb, 'G'gcode}
 
-    ;{' A'(-angle_4x_around_x):'5.3(p)'}
+    ;{' B'(-angle_4x_around_x):'5.3(p)'}
 endp
 
 ;-------------------
@@ -293,18 +293,18 @@ endp
     ;anext
     ;need_change_plane
     {nb, 'G0 Z'tool_z_level}
-    {nb, 'G0 A'first_axis_angle}
+    {nb, 'G0 B'first_axis_angle}
 endp
 
 ;-------------------
 
 @fourth_axis
     gcode = 0
-    {nb, 'G'gcode, ' A'first_axis_angle}
+    {nb, 'G'gcode, ' B'first_axis_angle}
 endp
 
 @transform_info
-    {nb, 'G0 A'angle}
+    {nb, 'G0 B'angle}
 endp
 
 ;-------------------
@@ -322,8 +322,9 @@ endp
 
     mcode = 6
     {nb, 'T'tool_number,' M' mcode' D'tool_number ' H'tool_number}
+    {nb, 'G43'}
     call @start_tool
-    call @home_number
+    ;call @home_number
 endp
 
 ;-------------------
@@ -445,7 +446,7 @@ endp
         
 ;        ;{nb, 'G0 G53 Z0'}
         
-;        ;{nb, 'G0 G53 A'(angle_4x_around_y):'5.3(p)'}
+;        ;{nb, 'G0 G53 B'(angle_4x_around_y):'5.3(p)'}
 ;    endif
 
 endp
@@ -474,9 +475,9 @@ endp
 
 @cool_mist
     if mist_coolant then
-        {nb, 'M7'}
+        {nb, '(M7)'}
     else
-        {nb, 'M9'}
+        {nb, '(M9)'}
     endif
 endp
 
@@ -484,9 +485,9 @@ endp
 
 @cool_flood
     if flood_coolant then
-        {nb, 'M8'}
+        {nb, '(M8)'}
     else
-        {nb, 'M9'}
+        {nb, '(M9)'}
     endif
 endp
 
@@ -538,9 +539,9 @@ endp
     endif
 
     if is_rapid_move then
-        {nb, 'G0', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' A'apos] }
+        {nb, 'G0', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' B'apos] }
     else
-        {nb, 'G1', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' A'apos], [' F'feed_move] }
+        {nb, 'G1', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' B'apos], [' F'feed_move] }
     endif
 endp
 
@@ -575,7 +576,7 @@ endp
     endif
 
     {nb, 'S'spin:integer_def_f, ' M'mcode}
-    {nb, 'M8'}
+    ;{nb, 'M8'}
 endp
 
 ;-------------------

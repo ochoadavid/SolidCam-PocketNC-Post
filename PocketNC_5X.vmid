@@ -1,0 +1,412 @@
+
+<!--xml version="1.0" encoding="ISO-8859-1"-->
+
+<Machine Ver="35" ID="0" Name="PocketNC_5X" DeviceNumber="0" CatalogNum="000001" Type="0" DriveUnitType="0" Company="" Model="" ControllerName="" RelativeGppFolder="" OperationType="0" FullyConverted="1" MachSimName="" TechDBName="">
+<Components>
+<Axis Ver="11" ID="2101" Name="X" Type="0" VecX="1" VecY="0" VecZ="0" HomeRef="0" MinLim="-100000" MaxLim="100000" InterpolationStep="0.001" Rapid="5000" MinSpeed="0" MaxSpeed="3000" RapidRotationUnits="0" MinFeedRotationUnits="0" MaxFeedRotationUnits="0" Acceleration="2500" Deceleration="2500" MaxVelocityForDirChange="250">
+<Components>
+<Axis Ver="11" ID="2102" Name="Y" Type="0" VecX="0" VecY="1" VecZ="0" HomeRef="0" MinLim="-100000" MaxLim="100000" InterpolationStep="0.001" Rapid="5000" MinSpeed="0" MaxSpeed="3000" RapidRotationUnits="0" MinFeedRotationUnits="0" MaxFeedRotationUnits="0" Acceleration="2500" Deceleration="2500" MaxVelocityForDirChange="250">
+<Components>
+<Axis Ver="11" ID="2103" Name="Z" Type="0" VecX="0" VecY="0" VecZ="1" HomeRef="0" MinLim="-100000" MaxLim="100000" InterpolationStep="0.001" Rapid="5000" MinSpeed="0" MaxSpeed="3000" RapidRotationUnits="0" MinFeedRotationUnits="0" MaxFeedRotationUnits="0" Acceleration="2500" Deceleration="2500" MaxVelocityForDirChange="250">
+<Components>
+<Device Ver="18" ID="1" Name="Spindle" DeviceNumber="1" CatalogNum="000002" Type="2" DriveUnitType="1" RotVecDir="1" MinAngleStep="0" TurretType="1" RotaryTurretAxisName="" ToolChangeTime="0" ToolChangeDir="0" AssemblyAngleStep="1" AssemblyAngleMinLimit="-360" AssemblyAngleMaxLimit="360">
+<Components>
+<Device Ver="14" ID="1" Name="Station_1" DeviceNumber="1" CatalogNum="000000" Type="8" DriveUnitType="3" HolderType="NONE" PullStudType="NONE" MaxPositions="J">
+<Coord x="0" y="0" z="0"/>
+<BoundaryBox x="0" y="0" z="0"/>
+<CoordSysVecX x="1" y="0" z="0"/>
+<CoordSysVecY x="0" y="1" z="0"/>
+<CoordSysVecZ x="0" y="0" z="1"/>
+<CoordSysPlace x="0" y="0" z="0"/>
+<MotionDirection x="0" y="0" z="1"/>
+<Options>
+<Option ID="0" FieldType="0"/>
+<Option ID="1" FieldType="0"/>
+<Option ID="2" FieldType="0"/>
+<Option ID="3" FieldType="0"/>
+<Option ID="4" FieldType="0"/>
+<Option ID="5" FieldType="0"/>
+<Option ID="6" FieldType="0"/>
+<Option ID="7" FieldType="0"/>
+<Option ID="8" FieldType="0"/>
+<Option ID="9" FieldType="0"/>
+<Option ID="10" FieldType="0"/>
+<Option ID="11" FieldType="0"/>
+<Option ID="12" FieldType="0"/>
+<Option ID="13" FieldType="0"/>
+<Option ID="14" FieldType="0"/>
+<Option ID="15" FieldType="0"/>
+<Option ID="16" FieldType="0"/>
+<Option ID="17" FieldType="0"/>
+<Option ID="18" FieldType="0"/>
+<Option ID="19" FieldType="0"/>
+<Option ID="20" FieldType="0"/>
+<Option ID="21" FieldType="0"/>
+<Option ID="22" FieldType="0"/>
+<Option ID="23" FieldType="0"/>
+<Option ID="24" FieldType="0"/>
+<Option ID="25" FieldType="0"/>
+<Option ID="26" FieldType="0"/>
+<Option ID="27" FieldType="0"/>
+<Option ID="28" FieldType="0"/>
+<Option ID="29" FieldType="0"/>
+<Option ID="30" FieldType="0"/>
+<Option ID="31" FieldType="0"/>
+<Option ID="32" FieldType="0"/>
+<Option ID="33" FieldType="0"/>
+<Option ID="34" FieldType="0"/>
+<Option ID="35" FieldType="0"/>
+<Option ID="36" FieldType="0"/>
+<Option ID="37" FieldType="0"/>
+<Option ID="38" FieldType="0"/>
+<Option ID="39" FieldType="0"/>
+<Option ID="40" FieldType="0"/>
+<Option ID="41" FieldType="0"/>
+</Options>
+</Device>
+</Components>
+<Gears>
+<Gear Ver="1" MinSpin="0" MaxSpin="24000" Power="15"/>
+</Gears>
+<Coord x="0" y="0" z="0"/>
+<BoundaryBox x="0" y="0" z="0"/>
+<CoordSysVecX x="1" y="0" z="0"/>
+<CoordSysVecY x="0" y="1" z="0"/>
+<CoordSysVecZ x="0" y="0" z="1"/>
+<CoordSysPlace x="0" y="0" z="0"/>
+<MotionDirection x="0" y="0" z="1"/>
+<Options>
+<Option ID="0" FieldType="0"/>
+<Option ID="1" FieldType="0"/>
+<Option ID="2" FieldType="0"/>
+<Option ID="3" FieldType="0"/>
+<Option ID="4" FieldType="0"/>
+<Option ID="5" FieldType="0"/>
+<Option ID="6" FieldType="0"/>
+<Option ID="7" FieldType="0"/>
+<Option ID="8" FieldType="0"/>
+<Option ID="9" FieldType="0"/>
+<Option ID="10" FieldType="0"/>
+<Option ID="11" FieldType="0"/>
+<Option ID="12" FieldType="0"/>
+<Option ID="13" FieldType="0"/>
+<Option ID="14" FieldType="0"/>
+<Option ID="15" FieldType="0"/>
+<Option ID="16" FieldType="0"/>
+<Option ID="17" FieldType="0"/>
+<Option ID="18" FieldType="0"/>
+<Option ID="19" FieldType="0"/>
+<Option ID="20" FieldType="0"/>
+<Option ID="21" FieldType="0"/>
+<Option ID="22" FieldType="0"/>
+<Option ID="23" FieldType="0"/>
+<Option ID="24" FieldType="0"/>
+<Option ID="25" FieldType="0"/>
+<Option ID="26" FieldType="0"/>
+<Option ID="27" FieldType="0"/>
+<Option ID="28" FieldType="0"/>
+<Option ID="29" FieldType="0"/>
+<Option ID="30" FieldType="0"/>
+<Option ID="31" FieldType="0"/>
+<Option ID="32" FieldType="0"/>
+<Option ID="33" FieldType="0"/>
+<Option ID="34" FieldType="0"/>
+<Option ID="35" FieldType="0"/>
+<Option ID="36" FieldType="0"/>
+<Option ID="37" FieldType="0"/>
+<Option ID="38" FieldType="0"/>
+<Option ID="39" FieldType="0"/>
+<Option ID="40" FieldType="0"/>
+<Option ID="41" FieldType="0"/>
+</Options>
+<ToolCheckPosition x="0" y="0" z="0" i="0" j="0" k="1"/>
+<MainPivotPoint x="0" y="0" z="0"/>
+<NormalVecToRotPlane x="0" y="0" z="1"/>
+</Device>
+</Components>
+</Axis>
+</Components>
+</Axis>
+</Components>
+</Axis>
+<Axis Ver="11" ID="1201" Name="A" Type="1" VecX="1" VecY="0" VecZ="0" CenterX="0" CenterY="0" CenterZ="0" HomeRef="0" MinLim="-10" MaxLim="135" InterpolationStep="0.001" Rapid="5000" MinSpeed="0" MaxSpeed="3000" RapidRotationUnits="1" MinFeedRotationUnits="1" MaxFeedRotationUnits="1" Acceleration="2500" Deceleration="2500" MaxVelocityForDirChange="250">
+<Components>
+<Axis Ver="11" ID="3" Name="B" Type="1" VecX="0" VecY="1" VecZ="0" CenterX="0" CenterY="0" CenterZ="0" HomeRef="0" MinLim="-9999" MaxLim="9999" InterpolationStep="0.001" Rapid="5000" MinSpeed="0" MaxSpeed="3000" RapidRotationUnits="1" MinFeedRotationUnits="1" MaxFeedRotationUnits="1" Acceleration="2500" Deceleration="2500" MaxVelocityForDirChange="250">
+<Components>
+<Device Ver="14" ID="2" Name="Table" DeviceNumber="1" CatalogNum="000003" Type="1" DriveUnitType="0" NumPallets="0">
+<Components>
+<Device Ver="1" ID="1" Name="Station_1" DeviceNumber="1" CatalogNum="000000" Type="10" DriveUnitType="0">
+<Coord x="0" y="0" z="0"/>
+<BoundaryBox x="0" y="0" z="0"/>
+<CoordSysVecX x="1" y="0" z="0"/>
+<CoordSysVecY x="0" y="1" z="0"/>
+<CoordSysVecZ x="0" y="0" z="1"/>
+<CoordSysPlace x="0" y="0" z="0"/>
+<MotionDirection x="0" y="0" z="1"/>
+<Options>
+<Option ID="0" FieldType="0"/>
+<Option ID="1" FieldType="0"/>
+<Option ID="2" FieldType="0"/>
+<Option ID="3" FieldType="0"/>
+<Option ID="4" FieldType="0"/>
+<Option ID="5" FieldType="0"/>
+<Option ID="6" FieldType="0"/>
+<Option ID="7" FieldType="0"/>
+<Option ID="8" FieldType="0"/>
+<Option ID="9" FieldType="0"/>
+<Option ID="10" FieldType="0"/>
+<Option ID="11" FieldType="0"/>
+<Option ID="12" FieldType="0"/>
+<Option ID="13" FieldType="0"/>
+<Option ID="14" FieldType="0"/>
+<Option ID="15" FieldType="0"/>
+<Option ID="16" FieldType="0"/>
+<Option ID="17" FieldType="0"/>
+<Option ID="18" FieldType="0"/>
+<Option ID="19" FieldType="0"/>
+<Option ID="20" FieldType="0"/>
+<Option ID="21" FieldType="0"/>
+<Option ID="22" FieldType="0"/>
+<Option ID="23" FieldType="0"/>
+<Option ID="24" FieldType="0"/>
+<Option ID="25" FieldType="0"/>
+<Option ID="26" FieldType="0"/>
+<Option ID="27" FieldType="0"/>
+<Option ID="28" FieldType="0"/>
+<Option ID="29" FieldType="0"/>
+<Option ID="30" FieldType="0"/>
+<Option ID="31" FieldType="0"/>
+<Option ID="32" FieldType="0"/>
+<Option ID="33" FieldType="0"/>
+<Option ID="34" FieldType="0"/>
+<Option ID="35" FieldType="0"/>
+<Option ID="36" FieldType="0"/>
+<Option ID="37" FieldType="0"/>
+<Option ID="38" FieldType="0"/>
+<Option ID="39" FieldType="0"/>
+<Option ID="40" FieldType="0"/>
+<Option ID="41" FieldType="0"/>
+</Options>
+</Device>
+</Components>
+<Coord x="0" y="0" z="0"/>
+<BoundaryBox x="0" y="0" z="0"/>
+<CoordSysVecX x="1" y="0" z="0"/>
+<CoordSysVecY x="0" y="1" z="0"/>
+<CoordSysVecZ x="0" y="0" z="1"/>
+<CoordSysPlace x="0" y="0" z="0"/>
+<MotionDirection x="0" y="0" z="1"/>
+<Options>
+<Option ID="0" FieldType="0"/>
+<Option ID="1" FieldType="0"/>
+<Option ID="2" FieldType="0"/>
+<Option ID="3" FieldType="0"/>
+<Option ID="4" FieldType="0"/>
+<Option ID="5" FieldType="0"/>
+<Option ID="6" FieldType="0"/>
+<Option ID="7" FieldType="0"/>
+<Option ID="8" FieldType="0"/>
+<Option ID="9" FieldType="0"/>
+<Option ID="10" FieldType="0"/>
+<Option ID="11" FieldType="0"/>
+<Option ID="12" FieldType="0"/>
+<Option ID="13" FieldType="0"/>
+<Option ID="14" FieldType="0"/>
+<Option ID="15" FieldType="0"/>
+<Option ID="16" FieldType="0"/>
+<Option ID="17" FieldType="0"/>
+<Option ID="18" FieldType="0"/>
+<Option ID="19" FieldType="0"/>
+<Option ID="20" FieldType="0"/>
+<Option ID="21" FieldType="0"/>
+<Option ID="22" FieldType="0"/>
+<Option ID="23" FieldType="0"/>
+<Option ID="24" FieldType="0"/>
+<Option ID="25" FieldType="0"/>
+<Option ID="26" FieldType="0"/>
+<Option ID="27" FieldType="0"/>
+<Option ID="28" FieldType="0"/>
+<Option ID="29" FieldType="0"/>
+<Option ID="30" FieldType="0"/>
+<Option ID="31" FieldType="0"/>
+<Option ID="32" FieldType="0"/>
+<Option ID="33" FieldType="0"/>
+<Option ID="34" FieldType="0"/>
+<Option ID="35" FieldType="0"/>
+<Option ID="36" FieldType="0"/>
+<Option ID="37" FieldType="0"/>
+<Option ID="38" FieldType="0"/>
+<Option ID="39" FieldType="0"/>
+<Option ID="40" FieldType="3"/>
+<Option ID="41" FieldType="0"/>
+</Options>
+</Device>
+</Components>
+</Axis>
+</Components>
+</Axis>
+</Components>
+<Coord x="0" y="0" z="0"/>
+<BoundaryBox x="0" y="0" z="0"/>
+<CoordSysVecX x="1" y="0" z="0"/>
+<CoordSysVecY x="0" y="1" z="0"/>
+<CoordSysVecZ x="0" y="0" z="1"/>
+<CoordSysPlace x="0" y="0" z="0"/>
+<MotionDirection x="0" y="0" z="1"/>
+<Options>
+<Option ID="0" FieldType="9"/>
+<Option ID="1" FieldType="1"/>
+<Option ID="2" FieldType="1"/>
+<Option ID="3" FieldType="0"/>
+<Option ID="4" FieldType="0"/>
+<Option ID="5" FieldType="0"/>
+<Option ID="6" FieldType="0"/>
+<Option ID="7" FieldType="0"/>
+<Option ID="8" FieldType="0"/>
+<Option ID="9" FieldType="2"/>
+<Option ID="10" FieldType="0"/>
+<Option ID="11" FieldType="0"/>
+<Option ID="12" FieldType="0"/>
+<Option ID="13" FieldType="0"/>
+<Option ID="14" FieldType="0"/>
+<Option ID="15" FieldType="0"/>
+<Option ID="16" FieldType="0"/>
+<Option ID="17" FieldType="0"/>
+<Option ID="18" FieldType="0"/>
+<Option ID="19" FieldType="0"/>
+<Option ID="20" FieldType="0"/>
+<Option ID="21" FieldType="0"/>
+<Option ID="22" FieldType="0"/>
+<Option ID="23" FieldType="0"/>
+<Option ID="24" FieldType="0"/>
+<Option ID="25" FieldType="0"/>
+<Option ID="26" FieldType="0"/>
+<Option ID="27" FieldType="0"/>
+<Option ID="28" FieldType="0"/>
+<Option ID="29" FieldType="0"/>
+<Option ID="30" FieldType="0"/>
+<Option ID="31" FieldType="0"/>
+<Option ID="32" FieldType="0"/>
+<Option ID="33" FieldType="0"/>
+<Option ID="34" FieldType="0"/>
+<Option ID="35" FieldType="0"/>
+<Option ID="36" FieldType="0"/>
+<Option ID="37" FieldType="0"/>
+<Option ID="38" FieldType="0"/>
+<Option ID="39" FieldType="0"/>
+<Option ID="40" FieldType="0"/>
+<Option ID="41" FieldType="0"/>
+</Options>
+<PostProcessors>
+<PostProcessor Name="PocketNC_5X"/>
+</PostProcessors>
+<Magazines>
+<Magazine Ver="1" ID="1" Name="Magazine_Spindle" Type="1" NumPockets="10">
+<DevicesIds Id0="1"/>
+</Magazine>
+</Magazines>
+<Combinations>
+<Combination ID="1" Ver="8" Name="Spindle_Table" TurretID="1" TableID="2" OperationType="0" MaxInverseFeed="0" TiltAxisMinLimit="-100000" TiltAxisMaxLimit="0">
+<CoordSysVecX x="1" y="0" z="0"/>
+<CoordSysVecY x="0" y="1" z="0"/>
+<CoordSysVecZ x="0" y="0" z="1"/>
+<CoordSysPlace x="0" y="0" z="0"/>
+<AxesOrder>
+<AxisOrder AxisId="2101" UsedInMillingAs="2" UsedInTurningAs="2" UsedInWireEdmAs="0"/>
+<AxisOrder AxisId="2102" UsedInMillingAs="2" UsedInTurningAs="2" UsedInWireEdmAs="0"/>
+<AxisOrder AxisId="2103" UsedInMillingAs="2" UsedInTurningAs="2" UsedInWireEdmAs="0"/>
+<AxisOrder AxisId="1201" InclinedTurning="0" UsedInMillingAs="2" UsedInTurningAs="0" UsedInWireEdmAs="0"/>
+<AxisOrder AxisId="-1" UsedInMillingAs="2" UsedInTurningAs="2" UsedInWireEdmAs="0"/>
+<AxisOrder AxisId="-1" UsedInMillingAs="2" UsedInTurningAs="2" UsedInWireEdmAs="0"/>
+</AxesOrder>
+<CombinedAxes/>
+</Combination>
+</Combinations>
+<Controller Name="Controller" Ver="6" CrossControl="1" MaxLabelsNum="100000" AltMaxLabelsNum="0" AbsRelModes="3">
+<TurningDefs>
+<TurningDef Ver="1" Locked="1" TurningCycle="1" GrooveCycle="1" CombinedCycles="0"/>
+</TurningDefs>
+<TiltedPlaneDefs>
+<TiltedPlaneDef Ver="1" Locked="1" RotationType="0"/>
+</TiltedPlaneDefs>
+<ProgramsNumbers>
+<ProgramNumbers Ver="1" Locked="1" MinProgramNumber="5000" MaxProgramNumber="8999" MinProcedureNumber="1" MaxProcedureNumber="4999"/>
+</ProgramsNumbers>
+<ArcExecutions>
+<ArcExecution Ver="1" Locked="1" SupportArcs="1" SupportHelicalArcs="1" Support4xHelicalArcs="0" Support90degArcs="0" SupportGrt180degArcs="1" SupportArcsZX_YZ="0" SupportOnlyArcsInMainPlanes="0" Support5xArcsInFace="0" Support5xArcsInRadial="0" MaxChordLength="30" MaxArcAngle="10" MaxArcRadius="2000" MinArcRadius="0.002" MinArcLength="0.005" MinArcAngle="0.005"/>
+</ArcExecutions>
+<PrecisionDef Ver="2" RotaryAxisPrecision="0.0005" MovementPrecision="3" FeedPrecision="3" SpinPrecision="3"/>
+<CompensationDefs>
+<CompensationDef Ver="2" Locked="1" Compensation="1" CompensationNeedFirstLine="0" SmallestMovement="0.02" MinDeltArcRad="0.01"/>
+</CompensationDefs>
+<PosToMachNoParams Ver="1" WithDeviationAngles="0" TiltAxisDirCW_CCW="0" TiltAxisDir="1" Dir4x="1" Positive4xDirOnly="1" Set_dir="0" CenterRotMacNum="20" DefaultMachinePlane="0" SoftwareTransform4x="0"/>
+<MillDrilCycles>
+<DrillCycle GppName="G81" Ver="3" GuiName="G81 Drilling Cycle without Peck" Id="1" UseCycle="1" OperationType="0" PictureName="" DrillType="0"/>
+<DrillCycle GppName="G82" Ver="3" GuiName="G82 Spot Drilling Cycle" Id="2" UseCycle="1" OperationType="0" PictureName="" DrillType="1">
+<CycleParams>
+<Param GppName="dwell" Ver="1" GuiName="dwell" ValueType="3" Value="0" DefaultValue="0" IsStateActive="1"/>
+</CycleParams>
+</DrillCycle>
+<DrillCycle GppName="G83" Ver="3" GuiName="G83 Peck Drilling for Deeper Holes" Id="3" UseCycle="1" OperationType="0" PictureName="" DrillType="2">
+<CycleParams>
+<Param GppName="dwell" Ver="1" GuiName="dwell" ValueType="3" Value="0" DefaultValue="0" IsStateActive="1"/>
+</CycleParams>
+</DrillCycle>
+<DrillCycle GppName="G84" Ver="3" GuiName="G84 Tapping" Id="4" UseCycle="1" OperationType="0" PictureName="" DrillType="3">
+<CycleParams>
+<Param GppName="pitch" Ver="1" GuiName="pitch" ValueType="3" Value="0" DefaultValue="0" IsStateActive="1"/>
+</CycleParams>
+</DrillCycle>
+</MillDrilCycles>
+<Probe Name="" Ver="2">
+<ProbeCycle GppName="All_Cycles" Ver="3" GuiName="All Cycles" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="0" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Plane_X" Ver="3" GuiName="Single point X" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="1" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Plane_Y" Ver="3" GuiName="Single point Y" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="2" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Plane_Z" Ver="3" GuiName="Single point Z" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="3" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Boss" Ver="3" GuiName="Boss" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="11" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Pocket" Ver="3" GuiName="Pocket" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="12" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Pocket_with_Boss" Ver="3" GuiName="Pocket with Boss" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="13" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Hole" Ver="3" GuiName="Hole" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="21" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Cylinder" Ver="3" GuiName="Cylinder" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="22" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Hole_With_Boss" Ver="3" GuiName="Hole with Boss" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="23" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Int_Arc" Ver="3" GuiName="Int. Arc" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="24" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Ext_Arc" Ver="3" GuiName="Ext. Arc" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="25" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Int_Corner" Ver="3" GuiName="Int. Corner" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="32" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Ext_Corner" Ver="3" GuiName="Ext. Corner" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="31" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Angle_X" Ver="3" GuiName="Angle X" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="41" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Angle_Y" Ver="3" GuiName="Angle Y" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="42" ActionType="3"/>
+<ProbeCycle GppName="Cycle_Angle_Z" Ver="3" GuiName="Angle Z" Id="0" UseCycle="0" OperationType="0" PictureName="" CycleProbeType="43" ActionType="3"/>
+</Probe>
+<UserDefParams Name="" Ver="2">
+<MachineParams>
+<Param GppName="trace_level" Ver="1" GuiName="Trace Level" ValueType="3" Value="0" DefaultValue="0" IsStateActive="1"/>
+</MachineParams>
+<MillParamsJobs>
+<ParamJobs GppName="use_solidcam_feeds" Ver="1" GuiName="Use SolidCam feeds" ValueType="1" Value="0" DefaultValue="0" IsStateActive="1" Description="Use SolidCam feeds in 5x or original_feed (the feed set in the operation)">
+<UsedInJobs>
+<UsedIn Job="-2"/>
+</UsedInJobs>
+</ParamJobs>
+</MillParamsJobs>
+</UserDefParams>
+<WorkingStyle Ver="3" PosToMach="1" DppFile="" HoleWizardForMetric="" HoleWizardForInch="" DeltaForToolH="50" HomeDataAtStart="0" AtStartSetAllAxesToHomeRef="1" AtEndSetAllAxesToHomeRef="1" SafetyDist="2" SimUseWithFanucCycle="0" MachToolTableName="" StartComment=";">
+<PerSubmachines>
+<sub0 Ver="2" Locked="1" CompensationByZero="0" CompensationFinishPasses="0" CompensationRoughPasses="0" CompensationClearOffsetPasses="0" CompensationForChamfer="0" ArcExistDefault="0" CompenOnRoughWithCycle="0" FinishRetreat="0" SemiFinishRetreat="0" UseTurningCycle="0" UseGroovingCycle="0" SoftwareTransform="0"/>
+</PerSubmachines>
+<ProgramsNumbers>
+<ProgramNumbers Ver="1" Locked="1" DefaultProgramNumber="5000" DefaultProcedureNumber="1"/>
+</ProgramsNumbers>
+<GcodeOutputs>
+<GcodeOutput Ver="3" Locked="1" OutputGcodeChannels="0" FileExtn="ngc" FilePrefix="" FileMaxLen="128" GcodeFolder="" AllowSpacesInGcodeFile="0" SepDirForeachGcodeFile="0" SepDirForeachGcodePart="0" FileNameFormat="1" SkipCheckLimits="0" ElbitSplitGcode="0" Separator="45"/>
+</GcodeOutputs>
+<TraceOutput Ver="3" NeedToolPathInfo="1" CpyTraceToSlvChannel="1" LabelBfrEachFeedMove="1" Full5xTrace="0"/>
+<ChannelsSyncDef Ver="1" StartLabel="1" DeltaLabel="1" AltStartLabel="1" AltDeltaLabel="1" StockManagJobsColor="65535" McoColor="12632256" Device2_Color="52377" Device1_Color="52377" Workpiece0_Color="13434879"/>
+<ProceduresDef Ver="1" GenProc="0" McoProc="0" TurningProc="0" GenInternalProc="0" DrillProc="0" TurnCommonPoc="0" GenSingleLineProc="1" OptimizeJobsLoop="0" LoopExist="0" SameSubNumbers="0" InitVarAfterSplit="1"/>
+<MachSimDef Ver="1" ShowStart_EndProgram="0" MinimizeUpdatedStockCalc="1"/>
+<Sim5xOptions Ver="1" AutoAnglePair="1" OtherAnglePair="0" StartAngleType="0" SolutionForStartAngle="0" PreferredStartAngle="0.0001" AngleToleranceForUsingMachineLimits="0" UseToolH_Length="0" UsePartShifting="0" UseRotAxisBasePoint2="0" OutputGcodePartCoordinate="0" InterplatForDist="0" EnableMxEdit="0" UseMachineLimits="0" RetractDistance="100" InterplatDistance="5" AngleChangeLimit="120" InterplatAngleStep="3" PoleAngleTolerance="0.01"/>
+<iMachiningDef Ver="1" MachDb="" MateDb=""/>
+<WireEdmDef Ver="1" AbsXY="1" AbsUV="1" PureToolPath="0" SplitArcByLines="1"/>
+<TimingDef Ver="1" TimeFactor="1" BlockTime="0"/>
+</WorkingStyle>
+</Controller>
+</Machine>

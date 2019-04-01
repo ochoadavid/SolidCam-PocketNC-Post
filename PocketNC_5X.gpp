@@ -1,18 +1,18 @@
 ;
-; Mach3 post for SolidCam 
+; 5ax PocketNC post for SolidCam 
 ; -----
-; Setup: standard 3 axis mill. A axis rotary, along X.
+; Setup: 
 ; Latest Revision:
-;  - 2016-03-10 Cleanups
-;
+
 
 @init_post
 
     ; Non GPPL variables
     num_user_procs =    1
-    ;line_labels    = TRUE     ; Jump to N...
+    line_labels    = TRUE     ; Jump to N...
 
     ; GPPL variables
+    ;pre_processor   = 'PocketNC - 5 axis'
     numeric_def_f   = '5.3'
     integer_def_f   = '5.0(p)'
     gcode_f         = '2.0(p)'
@@ -23,6 +23,7 @@
     feed_f          = '4.3(p)'
 ;    tool_diameter_f = '5.3/1'
     apos_f          = '5.3'
+    bpos_f          = '5.3'
     blknum_f        = '5.0(p)'
     blknum_gen      = false
     blknum_exist    = true
@@ -32,9 +33,11 @@
     blknum_delta    =    5
     blknum_max      = 999995
 
+    global logical use_sc_feeds
+    use_sc_feeds = FALSE
 
-    input 'Trace Level'trace_level
-    trace 'all':trace_level
+    ;input 'Trace Level'trace_level
+    ;trace 'all':trace_level
 endp
 
 ;-------------------
@@ -56,17 +59,25 @@ endp
 
 @start_program
     {nb, '( --- Initialisation --- )'}
-    {nb, 'G0 G40 G49 G80 G21'}
-    {nb, '( --- Go To Machine Origin --- )'}
-    {nb, 'G0 G53 Z0'}
-    {nb, 'G0 G53 X0 Y0 A0'}
+    {nb, 'G0 G53 X0 Y0 B0'} ; TODO REMOVE !!! ;eliminate "Z0" tool crash     
+    {nb, 'G0 G40 G49 G80'}
+    if inch_system then
+        {' G20'}
+    else
+        {' G21'}
+    endif
+
+    ;{nb, '( --- Go To Machine Origin --- )'}
+    ;{nb, 'G0 G53 Z0'}
+    ;{nb, 'G0 G53 X0 Y0 B0'}
 endp
 
 ;-------------------
 
 @end_program
-    {nb, 'G0 G53 Z0 M9'}
-    {nb, 'G0 G53 X0 Y0 A0 M5'}
+    {nb, 'M9 M5'}
+    {nb, 'G0 Z'tool_z_level}
+    {nb, 'G0 X0 Y0 B0'}
     {nl, 'M30'}
 endp
 
@@ -178,50 +189,32 @@ endp
 
 @move_4x
     gcode = 0
-  
-    local numeric a
-    a = cpos
-
-    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], ' A'a }
+    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], ' A'cpos }
 endp
 
 ;-------------------
 
 @line_4x
     gcode = 1
-  
-    local numeric a
-    a = cpos
-
-    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'a], [' F'feed] }
+    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'cpos], [' F'feed] }
 endp
 
 ;-------------------
 
 @move_5x
     gcode = 0
-
-    local numeric x, y, z, a
-	x = xtpos
-    y = -ytpos
-    z = -ztpos
-    a = -apos - 180
-    
-    {nb, ['G'gcode], [' X'x], [' Y'y], [' Z'z], [' A'a] }
+    {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'apos], [' B'bpos] }
 endp
 
 ;-------------------
 
 @line_5x
     gcode = 1
-    
-    local numeric x, y, z, a
-	x = xtpos
-    y = -ytpos
-    z = -ztpos
-    a = -apos - 180
-    
-    {nb, ['G'gcode], [' X'x], [' Y'y], [' Z'z], [' A'a], [' F'feed] }
+    if use_sc_feeds then 
+        {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'apos], [' B'bpos], [' F'feed] }
+    else
+        {nb, ['G'gcode], [' X'xpos], [' Y'ypos], [' Z'zpos], [' A'apos], [' B'bpos], [' F'original_feed] }
+    endif
 endp
 
 ;-------------------
@@ -236,10 +229,10 @@ endp
     if arc_size eq 360 then
         {' I'xcenter_rel, ' J'ycenter_rel}
     else
-            if arc_size gt 180 then
-                radius = -radius
-            endif
-            {' R'radius}
+        if arc_size gt 180 then
+            radius = -radius
+        endif
+        {' R'radius}
     endif
     {[' F'feed]}
 endp
@@ -266,9 +259,10 @@ endp
 ;-------------------
 
 @change_ref_point
+    ; TODO
     ; Given in absolute mode
     gcode = 10
-    {nb, 'G91 G'gcode, 'L2 P'home_number ' X'xhome, ' Y'yhome, ' Z'zhome}
+    {nb, 'G'gcode, 'L2 P'home_number ' X'xhome, ' Y'yhome, ' Z'zhome}
     {nb, 'G90'}
 endp
 
@@ -276,9 +270,9 @@ endp
 
 @home_number
     gcode = 53 + home_number
-    {nb, 'G'gcode}
+    ;{nb, 'G'gcode}
 
-    ;{' A'(-angle_4x_around_x):'5.3(p)'}
+    ;{' B'(-angle_4x_around_x):'5.3(p)'}
 endp
 
 ;-------------------
@@ -296,9 +290,22 @@ endp
 
 ;-------------------
 
+@rotate_to_plane
+    ;anext
+    ;need_change_plane
+    {nb, 'G0 Z'tool_z_level}
+    {nb, 'G0 B'first_axis_angle}
+endp
+
+;-------------------
+
 @fourth_axis
     gcode = 0
-    {nb, 'G'gcode, ' A'angle}
+    {nb, 'G'gcode, ' B'first_axis_angle}
+endp
+
+@transform_info
+    {nb, 'G0 B'angle}
 endp
 
 ;-------------------
@@ -316,17 +323,19 @@ endp
 
     mcode = 6
     {nb, 'T'tool_number,' M' mcode' D'tool_number ' H'tool_number}
+    {nb, 'G43'}
     call @start_tool
-    call @home_number
+    ;call @home_number
 endp
 
 ;-------------------
-
+;TODO - check mach drill cicles. g83 in particular
 @drill
-    call @move_4x
-
+    change(apos) = FALSE ; So
+    call @move_5x
+ 
     gcode = 98 ; default value
-
+  
     if drill_type eq G81 then
         gcode = 81
     endif
@@ -339,36 +348,32 @@ endp
     if drill_type eq G84 then
         gcode = 84
     endif
-    if drill_type eq G85 then
-        gcode = 85
-    endif
-    if drill_type eq G86 then
-        gcode = 86
-    endif
-    if drill_type eq G89 then
-        gcode = 89
-    endif
+  
     {nb, 'G'gcode, ' Z'drill_lower_z, ' R'drill_upper_z}
     if drill_type eq G83 then
-        {' Q'stepdown}
+        ;{' Q'stepdown}
+        {' Q'down_step}
         {' P'dwell:'7.0(*1000P)'}
     endif
     if drill_type eq G82 then
         {' P'dwell:'7.0(*1000P)'}
     endif
-    if drill_type eq G84 then
-        feed = spin * pitch
-    endif
-
+    ;if drill_type eq G84 then
+    ;    feed = spin * pitch 
+    ;endif
+  
     {' F'feed}
-
+    ;{nb, ' ', ' X'xpos, ' Y'ypos, ' Z'zpos}
 endp
 
 ;-------------------
 
 @drill_point
+    ;{nl, '('first_drill')'}
     if not first_drill then
-        {nb, ' ', ' X'xpos, ' Y'ypos, ' Z'zpos}
+        call @drill
+    ;else    
+    ;    {nb, ' ', ' X'xpos, ' Y'ypos, ' Z'zpos}
     endif
 endp
 
@@ -376,11 +381,12 @@ endp
 
 @drill4x_pnt
     if not first_drill then
-		call @drill
+        call @drill
    endif
 endp
 
 ;-------------------
+
 @mirror
     if mirror_type eq MIRROR_OFF then
         {nb, 'G50.1 X0 Y0'}
@@ -420,31 +426,29 @@ endp
 ;--------------------
 
 @start_of_job
-    ;{nb, '( ----------------------------- )'}
-    {nb, '( ---- Start of 'job_name' ---- )'}
+    ;{nb, '( ---- Start of 'job_name' ---- )'}
 
     if msg ne ''
         {nb, '('msg, ')'}
     endif
-    
-    ;{nb, nl, '( rax='rotate_angle_x, ' ray='rotate_angle_y, ')'}
-    ;{nb, nl, '( a4xax='angle_4x_around_x , ' a4xay='angle_4x_around_y, ' )' }
 
-    ; TODO: move up and rotate A only if necessary
-;   if change(angle_4x_around_x)
-;       {'( >>> angle_4x_around_x changed <<<)'}
-;   endif
-
-    if fourth_axis_used eq false and rotate_used eq false then 
-        ;{nl, '( >>> angle_4x_around_x to be updated <<<)'}
-
-        {nb, 'G0 G53 Z'(tool_z_level):'5.3(p)', '  ; move up to tool_z_level'}
-        
-        ;{nb, 'G0 G53 Z'clearance_level, , '; clearance_level'}
-        ;{nb, 'G0 G53 Z0'}
-        
-        {nb, 'G0 G53 A'(-angle_4x_around_x):'5.3(p)'}
+    if active(use_solidcam_feeds) then
+        ;{nb, '( active use_solidcam_feeds ', use_solidcam_feeds, ' )'}
+        use_sc_feeds = use_solidcam_feeds
+    else
+        ;{nb, '( active use_solidcam_feeds FALSE', use_solidcam_feeds, ' )'}
+        use_sc_feeds = FALSE
     endif
+
+;    if fourth_axis_used eq false and rotate_used eq false then 
+;        {nb, 'G0 Z'(tool_z_level):'5.3(p)', '  ; move up to tool_z_level'}
+        
+;        ;{nb, 'G0 Z'clearance_level, '; clearance_level'}
+        
+;        ;{nb, 'G0 G53 Z0'}
+        
+;        ;{nb, 'G0 G53 B'(angle_4x_around_y):'5.3(p)'}
+;    endif
 
 endp
 
@@ -464,69 +468,82 @@ endp
 ;-------------------
 
 @dwell 
-	delay_period = dwell_time
-	call @delay
+    delay_period = dwell_time
+    call @delay
 endp
 
 ;--------------------
 
 @cool_mist
-	if mist_coolant then
-		{nb, 'M7'}
-	else
-		{nb, 'M9'}
-	endif
+    if mist_coolant then
+        {nb, '(M7)'}
+    else
+        {nb, '(M9)'}
+    endif
 endp
 
 ;--------------------
 
 @cool_flood
-	if flood_coolant then
-		{nb, 'M8'}
-	else
-		{nb, 'M9'}
-	endif
+    if flood_coolant then
+        {nb, '(M8)'}
+    else
+        {nb, '(M9)'}
+    endif
 endp
 
 ;--------------------
 
 @message
-   {nb, '( ', message, ' )'}
+    if not instr(message, '-----') then
+        {nb, '( ', message, ' )'}
+    endif
 endp
 
 ;-------------------
 
 @mco_message
-	call @message
+    call @message
+endp
+
+;--------------------
+
+@machine_opt_stop
+    if optional_stop then
+        if MCO_New_Line then
+            {nb}
+        endif
+        {' M1'}
+    endif
 endp
 
 ;--------------------
 
 @move_object
-	local string machine_coords
-	local numeric xpos, ypos, zpos, apos
-	
-	machine_coords = ' G53' ; abs coords by default
-	
-	if MCO_CoordSysType eq 1 then ; machine / abs coordinates
-		machine_coords = ' G53'
-		xpos = move_axis_x
-		ypos = move_axis_y
-		zpos = move_axis_z
-		apos = move_axis_a
-	else	; part coordinates
-		machine_coords = ''
-		xpos = xh_move
-		ypos = yh_move
-		zpos = zh_move
-		apos = ah_move
-	endif
+    local string machine_coords
+    local numeric xpos, ypos, zpos, apos
+    
+    machine_coords = ' G53' ; abs coords by default
+    
+    if MCO_CoordSysType eq 1 then ; machine / abs coordinates
+        machine_coords = ' G53'
+        xpos = move_axis_x
+        ypos = move_axis_y
+        zpos = move_axis_z
+        apos = move_axis_a
+    else    ; part coordinates
+        machine_coords = ''
+        xpos = xh_move
+        ypos = yh_move
+        zpos = zh_move
+        apos = ah_move
+    endif
 
-	if is_rapid_move then
-		{nb, 'G0', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' A'apos] }
-	else
-		{nb, 'G1', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' A'apos], [' F'feed_move] }
-	endif
+    if is_rapid_move then
+        {nb, 'G0', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' A'apos], [' B'bpos]}
+    else
+        {nb, 'G1', machine_coords, ' X'xpos, ' Y'ypos, ' Z'zpos, [' A'apos], [' B'bpos], [' F'feed_move] }
+    endif
 endp
 
 ;--------------------
@@ -554,13 +571,13 @@ endp
 
 @start_tool
     if tool_direction eq CW then
-        mcode = 4
-    else              ;  CCW
         mcode = 3
+    else              ;  CCW
+        mcode = 4
     endif
 
     {nb, 'S'spin:integer_def_f, ' M'mcode}
-    {nb, 'M8'}
+    ;{nb, 'M8'}
 endp
 
 ;-------------------
